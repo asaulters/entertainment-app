@@ -1,0 +1,38 @@
+.trendingDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.trendingItem1{
+    background-image: url('../../assets//thumbnails/beyond-earth/trending/small.jpg');
+    height: 300px;
+    width: 1000px;
+}
+
+.trendingItem2{
+    background-image: url('../../assets//thumbnails/bottom-gear/trending/small.jpg');
+    height: 300px;
+    width: 1000px;
+}
+
+.trendingItem3{
+    background-image: url('../../assets//thumbnails/undiscovered-cities/trending/small.jpg');
+    height: 300px;
+    width: 1000px;
+}
+
+.trendingItem4{
+    background-image: url('../../assets//thumbnails/1998/trending/small.jpg');
+    height: 300px;
+    width: 1000px;
+}
+
+.trendingItem5{
+    background-image: url('../../assets//thumbnails/dark-side-of-the-moon/trending/small.jpg');
+    height: 300px;
+    width: 1000px;
+}

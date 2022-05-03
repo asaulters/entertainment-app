@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import Header from './Header/Header';
+import Search from './Search/Search';
+import TrendingChoices from './Choices/Trending/TrendingChoices';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />;
+      <Search />;
+      <div className='trendingDiv'>
+        <h1 className='trendingDiv-h1'>Trending</h1>
+        <div className='trendingDiv-Content'>
+          <TrendingChoices />
+        </div>
+      </div>
+    </>
   );
 }
 

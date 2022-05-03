@@ -1,0 +1,18 @@
+.searchDiv{
+    background-color: blue;
+    width: 90%;
+    height: 40px;
+    margin: .05% auto;
+    padding: 2%;
+    border-radius: 2em;
+    display: grid;
+    grid-template-columns: 5% 95%;
+}
+.searchIcon{
+    grid-column: 1/2;
+    margin: auto;
+}
+
+.searchInput{
+    grid-column: 2/3
+}
