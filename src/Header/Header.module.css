@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    margin-top: 1%;
+    width: 90%;
+    margin: 1% auto;
+    padding: 2%;
+    background-color: grey;
+    border-radius: 2em;
+}
+.navImgs {
+    /* width: 4000px;
+    height: 4000px; */
+    color: black; 
+
+
+}
+
+.navImgDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: beige; */
+    width: 20%;
+    height: 40px;
+}
+
+.logoSVG,
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+svg{
+    color: black;
+}
