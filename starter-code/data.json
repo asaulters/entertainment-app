@@ -98,9 +98,9 @@
     "title": "The Great Lands",
     "thumbnail": {
       "regular": {
-        "small": "./assets/thumbnails/the-great-lands/regular/small.jpg",
-        "medium": "./assets/thumbnails/the-great-lands/regular/medium.jpg",
-        "large": "./assets/thumbnails/the-great-lands/regular/large.jpg"
+        "small": "../assets/thumbnails/the-great-lands/regular/small.jpg",
+        "medium": "../assets/thumbnails/the-great-lands/regular/medium.jpg",
+        "large": "../assets/thumbnails/the-great-lands/regular/large.jpg"
       }
     },
     "year": 2019,

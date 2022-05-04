@@ -3,36 +3,91 @@
     flex-direction: row;
     justify-content: space-around;
     height: 100%;
+    width: 95%;
+    margin: auto;
+    /* position: relative; */
+    overflow: hidden;
+    /* animation: slideshow 10s linear infinite; */
+
+}
+
+.slider{
+    margin: auto;
+    height: 100%;
     width: 100%;
-    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow:nowrap;
+    animation: trendingDiv 10s linear infinite;
+    gap: 5px;
+        /* width: 100%;
+        overflow-x: scroll;
+        overflow-y: visible;
+        white-space: nowrap;
+        position: relative;
+        padding-top: var(--slider-py);
+        padding-bottom: var(--slider-py);
+       */
 }
 
 .trendingItem1{
     background-image: url('../../assets//thumbnails/beyond-earth/trending/small.jpg');
+    background-size: cover;
     height: 300px;
-    width: 1000px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 10% 50% 40%;
+    border-radius: 5%;
 }
 
 .trendingItem2{
     background-image: url('../../assets//thumbnails/bottom-gear/trending/small.jpg');
+    background-size: cover;
     height: 300px;
-    width: 1000px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 10% 50% 40%;
+    border-radius: 5%;
 }
 
 .trendingItem3{
     background-image: url('../../assets//thumbnails/undiscovered-cities/trending/small.jpg');
+    background-size: cover;
     height: 300px;
-    width: 1000px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 10% 50% 40%;
+    border-radius: 5%;
 }
 
 .trendingItem4{
     background-image: url('../../assets//thumbnails/1998/trending/small.jpg');
     height: 300px;
-    width: 1000px;
+    width: 110%;
 }
 
 .trendingItem5{
     background-image: url('../../assets//thumbnails/dark-side-of-the-moon/trending/small.jpg');
     height: 300px;
-    width: 1000px;
+    width: 110%;
+}
+
+.bookmarkSVG{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin-top: 50%;
+    background: grey;
+    padding: 20%;
+    border-radius: 10em;
+}
+
+.imgInfo{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    padding-left: 10%;
+    color: white;
 }

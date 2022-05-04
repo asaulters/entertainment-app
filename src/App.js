@@ -3,7 +3,11 @@ import React from 'react';
 import Header from './Header/Header';
 import Search from './Search/Search';
 import TrendingChoices from './Choices/Trending/TrendingChoices';
-import './App.css';
+import Recommended from './Choices/Recommended/Recommended';
+
+// import './App.css';
+
+import avalibleMovies from '../src/data.json'
 
 function App() {
   return (
@@ -15,6 +19,10 @@ function App() {
         <div className='trendingDiv-Content'>
           <TrendingChoices />
         </div>
+      </div>
+      <div className='recommendedDiv'>
+        <h1>Recommended for you</h1>
+        <Recommended avalibleMovies={avalibleMovies}/>
       </div>
     </>
   );
