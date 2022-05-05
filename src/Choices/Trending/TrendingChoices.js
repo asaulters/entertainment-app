@@ -10,7 +10,7 @@ const TrendingChoices = () => {
         <div className={classes.trendingDiv}>
             <div className={classes.slider} >
             <div className={classes.trendingItem1}>;
-                <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>;
+                <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
                 <div className={classes.imgInfo}>
                     <div className={classes.imgInfoTop}>
                         <p>2019 Movie PG</p>
@@ -19,7 +19,7 @@ const TrendingChoices = () => {
                 </div>
             </div>;
             <div className={classes.trendingItem2}>;
-                <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>;
+                <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
                 <div className={classes.imgInfo}>
                     <div className={classes.imgInfoTop}>
                         <p>2021 Movie PG</p>
@@ -28,7 +28,7 @@ const TrendingChoices = () => {
                 </div>
             </div>;
             <div className={classes.trendingItem3}>;
-                <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>;
+                <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
                 <div className={classes.imgInfo}>
                     <div className={classes.imgInfoTop}>
                         <p>2019 TV Series E</p>
@@ -36,10 +36,10 @@ const TrendingChoices = () => {
                     </div>
                 </div>
             </div>;
-            {/* <div className={classes.trendingItem4}>;
+            {/* <div className={classes.trendingItem4}>
                 <img src={bookmarkSVG} alt='bookmark img'/>;
             </div>;
-            <div className={classes.trendingItem5}>;
+            <div className={classes.trendingItem5}>
                <img src={bookmarkSVG} alt='bookmark img'/>;
             </div>; */}
             </div>

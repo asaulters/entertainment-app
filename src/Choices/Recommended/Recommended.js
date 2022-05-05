@@ -1,21 +1,17 @@
 import React from "react"; 
 
 // import avalibleMovies from '../../data.json'
+import TGLimg from './thumbnails/the-great-lands/regular/large.jpg';
+// import bgdImg from '/movie/thumbnail/regular/large'
+import bookmarkSVG from '../../assets/icon-bookmark-empty.svg';
+
 
 // import {ReactComponent as movieOneSVG} from '../../assets/thumbnails/beyond-earth';
 import classes from './Recommended.module.css';
 
 const Recommended = (props) => {
 
-    const movies = () => {
-        // props.avalibleMovies.filter((movie) => !isTrending).map((movie) => {
-        //     console.log(movie.title)
-        // })
-        console.log(props.avalibleMovies.filter((movie) => 
-        movies.isTrending !== true)
-        );
-    }
-
+    // const imgUrl = 'url({../../../../assets/thumbnail.movie.large})'
 
 
     return (
@@ -23,14 +19,24 @@ const Recommended = (props) => {
             {props.avalibleMovies.filter((movie) => 
                 movie.isTrending === false).map((movie, i) => {
                     return <div 
+                                className={classes.movieDiv}
                                 key={i} 
                                 style={{
-                                    // backgroundImage: 'url({../../../../assets/thumbnail/{movie.regular.large}})',
-                                    backgroundImage: 'url({../../../../assets/thumbnail.movie.large})'
+                                    backgroundImage: TGLimg,
+                                    // backgroundImage: 'url({.//thumbnail.movie.large})'
                                 }}
                                 >
                                 {/* {console.log(movie.thumbnail.regular.large)} */}
-                             <ul>{movie.title}</ul>
+                                <div className={classes.movieThumbPic}> 
+                                    <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
+                                    <img className={classes.recommendedMovieImg} src={movie.thumbnail.regular.large}/>
+                                </div>
+                                <div className={classes.movieThumbInfo} >
+                                    <p>{movie.year} * {movie.category} * {movie.rating} </p>
+                                    <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
+                                </div>
+
+                             {/* <ul>{movie.title}</ul> */}
                              {/* <movieOneSVG /> */}
                         </div>
                     
