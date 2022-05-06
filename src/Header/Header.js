@@ -22,23 +22,36 @@ const Header = (props) => {
     return(
         <header className={classes.header}>
             <img src={logoSVG} alt='logo nav img' className={classes.logoSVG}/>
-            <div className={classes.navImgDiv}>
+            <nav className={classes.nav}>
+                <ul className={classes.navImg}>
+                    <a ><img src={homeSVG} className={classes.navImgRec}/></a>
+                </ul>
+                <ul className={classes.navImg}>
+                    <Link to = {Movies}><img src={movieSVG} className={classes.navImgMov}/></Link>
+                </ul>
+                <ul className={classes.navImg}>
+                <Link to = '../Pages/Movies.js'><img src={tvSVG} className={classes.navImgTv}/></Link>
+                </ul>
+                <ul className={classes.navImg}>
+                    <a><img src={bookmarkSVG} className={classes.navImgBkmk}/></a>
+                </ul>
                 {/* <Routes> */}
-                <Link  element={Movies}>
+                {/* <Link  element={Movies}>
                 <React.Fragment>
                 <img src={homeSVG} alt='home nav img' className={classes.navImg1}/>
-                </React.Fragment>
+                </React.Fragment> */}
                 {/* </Route> */}
-                </Link>
+                {/* </Link> */}
                 {/* <img src={homeSVG} alt='home nav img' className={classes.navImg1}/></Route>
                 <ReactSVG src={movieSVG} alt='movie nav img' className={classes.navMovieImg} 
                 width='150' height='150'
                 />
+
                 
                 <ReactSVG src={tvSVG} alt='tv nav img' className={classes.navMovieImg}/>
                 <img src={bookmarkSVG} alt='bookmark nav img' className={classes.navImgs}/> */}
                 {/* </Routes> */}
-            </div>
+            </nav>
             <img src={require('../assets/image-avatar.png')} alt='profile nav img' className={classes.avatar}/>
         </header>
     )

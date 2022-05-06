@@ -10,6 +10,7 @@ import Search from '../Search/Search';
 import TrendingChoices from '../Choices/Trending/TrendingChoices';
 import Recommended from '../Choices/Recommended/Recommended';
 
+import moviePath from './Movies'
 import classes from './Home.module.css';
 
 import avalibleMovies from '../data.json'
