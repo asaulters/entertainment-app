@@ -1,0 +1,14 @@
+body{
+  background-color: #10141e;
+  color: #ffffff;
+}
+
+.App {
+  text-align: center;
+  background-color: #10141e;
+}
+
+.trendingDivH1,
+.recommendedDivH1{
+  margin-left: 2%;
+}

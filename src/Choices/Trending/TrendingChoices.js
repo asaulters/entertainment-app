@@ -9,7 +9,7 @@ const TrendingChoices = () => {
     return (
         <div className={classes.trendingDiv}>
             <div className={classes.slider} >
-            <div className={classes.trendingItem1}>;
+            <div className={classes.trendingItem1}>
                 <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
                 <div className={classes.imgInfo}>
                     <div className={classes.imgInfoTop}>
@@ -18,7 +18,7 @@ const TrendingChoices = () => {
                     </div>
                 </div>
             </div>;
-            <div className={classes.trendingItem2}>;
+            <div className={classes.trendingItem2}>
                 <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
                 <div className={classes.imgInfo}>
                     <div className={classes.imgInfoTop}>
@@ -27,7 +27,7 @@ const TrendingChoices = () => {
                     </div>
                 </div>
             </div>;
-            <div className={classes.trendingItem3}>;
+            <div className={classes.trendingItem3}>
                 <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
                 <div className={classes.imgInfo}>
                     <div className={classes.imgInfoTop}>
@@ -35,7 +35,7 @@ const TrendingChoices = () => {
                         <h3>Undescovered Cities</h3>
                     </div>
                 </div>
-            </div>;
+            </div>
             {/* <div className={classes.trendingItem4}>
                 <img src={bookmarkSVG} alt='bookmark img'/>;
             </div>;
