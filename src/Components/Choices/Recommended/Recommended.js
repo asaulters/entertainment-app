@@ -15,21 +15,17 @@ const Recommended = (props) => {
 
 
     return (
-        <div className={classes.Recommended}>
+        <div className={classes.choicesContent}>
             {props.avalibleMovies.filter((movie) => 
                 movie.isTrending === false).map((movie, i) => {
                     return <div 
                                 className={classes.movieDiv}
                                 key={i} 
-                                style={{
-                                    backgroundImage: TGLimg,
-                                    // backgroundImage: 'url({.//thumbnail.movie.large})'
-                                }}
                                 >
                                 {/* {console.log(movie.thumbnail.regular.large)} */}
                                 <div className={classes.movieThumbPic}> 
                                     <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
-                                    <img className={classes.recommendedMovieImg} src={movie.thumbnail.regular.large}/>
+                                    <img className={classes.MovieImg} src={movie.thumbnail.regular.large}/>
                                 </div>
                                 <div className={classes.movieThumbInfo} >
                                     <p>{movie.year} * {movie.category} * {movie.rating} </p>

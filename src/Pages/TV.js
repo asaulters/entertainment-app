@@ -1,8 +1,19 @@
 import React from 'react'
 
+import TVChoices from '../Components/Choices/TV/TVChoices';
+
+import avalibleChoices from './../data.json';
+
 const TV = () => {
   return (
-    <h1>TV</h1>
+    <>
+      <div>
+        <h1>TV Shows!</h1>
+      </div>
+      <div>
+        <TVChoices avalibleChoices={avalibleChoices}/>
+      </div>
+    </>
   )
 }
 
