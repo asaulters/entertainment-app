@@ -64,9 +64,9 @@
         "large": "./assets/thumbnails/1998/trending/large.jpg"
       },
       "regular": {
-        "small": "./assets/thumbnails/1998/regular/small.jpg",
-        "medium": "./assets/thumbnails/1998/regular/medium.jpg",
-        "large": "./assets/thumbnails/1998/regular/large.jpg"
+        "small": "../assets/thumbnails/1998/regular/small.jpg",
+        "medium": "../assets/thumbnails/1998/regular/medium.jpg",
+        "large": "../assets/thumbnails/1998/regular/large.jpg"
       }
     },
     "year": 2021,
