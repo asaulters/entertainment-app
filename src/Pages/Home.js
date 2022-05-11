@@ -9,9 +9,14 @@ import Recommended from '../Choices/Recommended/Recommended';
 
 import classes from './Home.module.css';
 
+import BkmrkCtx from '../Components/Store/ContextProvider'
 import avalibleMovies from '../data.json'
   
 const Home = () => {
+
+  const bookmarktry = () => {
+    console.log('hola')
+  }
     return (
         <>
           <div className={classes.trendingDiv}>
@@ -22,7 +27,7 @@ const Home = () => {
           </div>
           <div className={classes.recommendedDiv}>
             <h1 className={classes.recommendedDivH1}>Recommended for you</h1>
-            <Recommended avalibleMovies={avalibleMovies}/>
+            <Recommended avalibleMovies={avalibleMovies} bookmarktry={bookmarktry}/>
           </div>
         </>
       );

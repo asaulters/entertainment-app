@@ -14,7 +14,7 @@ import Movies from './Pages/Movies';
 import TV from './Pages/TV';
 import Bookmarks from './Pages/Bookmarks'
 
-
+import bookmarkContext from '../src/Components/Store/ContextProvider'
 import Header from './Components/Header/Header';
 import Search from './Components/Search/Search';
 import TrendingChoices from './Choices/Trending/TrendingChoices';
@@ -25,33 +25,7 @@ import classes from './App.module.css';
 import avalibleMovies from '../src/data.json'
 
 function App() {
-  const [page, setPage] = useState('recommended');
 
-  const movieClickHandler =() => {
-        
-  }
-
-  // return (
-  //   <>
-      {/* <Header />
-      <Search />
-      <div className={classes.trendingDiv}>
-        <h1 className={classes.trendingDivH1}>Trending</h1>
-        <div className={classes.trendingDivContent}>
-          <TrendingChoices />
-        </div>
-      </div>
-      <div className={classes.recommendedDiv}>
-        <h1 className={classes.recommendedDivH1}>Recommended for you</h1>
-        <Recommended avalibleMovies={avalibleMovies}/>
-      </div> */}
-      {/* <Router>
-        <Routes>
-          <Route exact path='/' element={<Home />} />
-        </Routes>
-      </Router>
-    </>
-  ); */}
   return (
     <Router>
       <div className='App'>

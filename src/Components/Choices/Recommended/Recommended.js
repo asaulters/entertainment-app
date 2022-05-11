@@ -13,19 +13,28 @@ const Recommended = (props) => {
 
     // const imgUrl = 'url({../../../../assets/thumbnail.movie.large})'
 
+    const bookmarkHandler =() => {
+        props.bookmarktry();
+    }
 
     return (
         <div className={classes.choicesContent}>
-            {props.avalibleMovies.filter((movie) => 
+            {this.props.avalibleMovies.filter((movie) => 
                 movie.isTrending === false).map((movie, i) => {
                     return <div 
                                 className={classes.movieDiv}
                                 key={i} 
                                 >
                                 {/* {console.log(movie.thumbnail.regular.large)} */}
-                                <div className={classes.movieThumbPic}> 
-                                    <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
-                                    <img className={classes.MovieImg} src={movie.thumbnail.regular.large}/>
+                                <div className={classes.movieThumbPic} > 
+                                    <div onClick={() => this.console.log('hello')}><img 
+                                    src={bookmarkSVG} 
+                                    className={classes.bookmarkSVG}  
+                                    alt='bookmark img'
+                                    onClick={this.bookmarkHandler}
+                                    />
+                                    </div>
+                                    <img className={classes.MovieImg} src={movie.thumbnail.regular.large} />
                                 </div>
                                 <div className={classes.movieThumbInfo} >
                                     <p>{movie.year} * {movie.category} * {movie.rating} </p>
