@@ -26,6 +26,12 @@ import avalibleMovies from '../src/data.json'
 
 function App() {
 
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const bookmarkHandler =(newBookmark) =>{
+    setBookmarks(...bookmarks, newBookmark)
+  }
+
   return (
     <Router>
       <div className='App'>
@@ -34,7 +40,7 @@ function App() {
         <div className='content'>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path='/movies' element={<Movies />}/>
+            <Route path='/movies' element={<Movies bookmark={bookmarkHandler}/>}/>
             <Route path='/tv' element={<TV />}/>
             <Route path='/bookmarks' element={<Bookmarks />}/>
           </Routes>
