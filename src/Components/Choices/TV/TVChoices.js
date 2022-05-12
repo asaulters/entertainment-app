@@ -1,10 +1,15 @@
 import React from 'react';
 
-import bookmarkSVG from './assets/icon-bookmark-empty.svg';
+import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
 
 import classes from '../Recommended/Recommended.module.css';
 
 const TVChoices = (props) => {
+
+    const bookmarkHandler1 = (movie)=>{
+        // console.log(movie);
+        props.onBookmark(movie);
+      }
 
     return( 
         <div className={classes.choicesContent}>
@@ -16,7 +21,12 @@ const TVChoices = (props) => {
                 >
                 {/* {console.log(movie.thumbnail.regular.large)} */}
                 <div className={classes.movieThumbPic}> 
-                    <img src={bookmarkSVG} className={classes.bookmarkSVG}  alt='bookmark img'/>
+                    <img 
+                        src={bookmarkEmptySVG} 
+                        className={classes.bookmarkSVG}  
+                        alt='bookmark img'
+                        onClick={() => bookmarkHandler1(movie)}
+                        />
                     <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt="tv show thumb pic"/>
                 </div>
                 <div className={classes.movieThumbInfo} >

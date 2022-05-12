@@ -29,7 +29,9 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
 
   const bookmarkHandler =(newBookmark) =>{
-    setBookmarks(...bookmarks, newBookmark)
+    setBookmarks([...bookmarks, newBookmark])
+    console.log(bookmarks);
+    // console.log(newBookmark)
   }
 
   return (
@@ -39,10 +41,10 @@ function App() {
         <Search />
         <div className='content'>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Home bookmark={bookmarkHandler} />} />
             <Route path='/movies' element={<Movies bookmark={bookmarkHandler}/>}/>
-            <Route path='/tv' element={<TV />}/>
-            <Route path='/bookmarks' element={<Bookmarks />}/>
+            <Route path='/tv' element={<TV bookmark={bookmarkHandler} />}/>
+            <Route path='/bookmarks' element={<Bookmarks bookmarks={bookmarks}/>}/>
           </Routes>
         </div>
       </div>

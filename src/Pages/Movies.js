@@ -7,7 +7,8 @@ const Movies = (props) => {
 
   const bookmarkHandler= (newChoice)=> {
     // props.bookmarkHandler(newChoice)
-    console.log(newChoice)
+    // console.log(newChoice);
+    props.bookmark(newChoice);
   }
 
   return (

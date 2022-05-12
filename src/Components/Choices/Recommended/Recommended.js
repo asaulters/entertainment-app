@@ -13,9 +13,10 @@ const Recommended = (props) => {
 
     // const imgUrl = 'url({../../../../assets/thumbnail.movie.large})'
 
-    const bookmarkHandler =() => {
-        props.bookmarktry();
-    }
+    const bookmarkHandler1 = (movie)=>{
+        // console.log(movie);
+        props.onBookmark(movie);
+      }
 
     return (
         <div className={classes.choicesContent}>
@@ -27,13 +28,13 @@ const Recommended = (props) => {
                                 >
                                 {/* {console.log(movie.thumbnail.regular.large)} */}
                                 <div className={classes.movieThumbPic} > 
-                                    <div onClick={() => this.console.log('hello')}><img 
+                                    <img 
                                     src={bookmarkSVG} 
                                     className={classes.bookmarkSVG}  
                                     alt='bookmark img'
-                                    onClick={this.bookmarkHandler}
+                                    onClick={() => bookmarkHandler1(movie)}
                                     />
-                                    </div>
+                                    
                                     <img className={classes.MovieImg} src={movie.thumbnail.regular.large} />
                                 </div>
                                 <div className={classes.movieThumbInfo} >

@@ -12,11 +12,13 @@ import classes from './Home.module.css';
 import BkmrkCtx from '../Components/Store/ContextProvider'
 import avalibleMovies from '../data.json'
   
-const Home = () => {
+const Home = (props) => {
 
-  const bookmarktry = () => {
-    console.log('hola')
-  }
+  const bookmarkHandler= (newChoice)=> {
+    // props.bookmarkHandler(newChoice)
+    // console.log(newChoice);
+    props.bookmark(newChoice);
+  } 
     return (
         <>
           <div className={classes.trendingDiv}>
@@ -27,7 +29,7 @@ const Home = () => {
           </div>
           <div className={classes.recommendedDiv}>
             <h1 className={classes.recommendedDivH1}>Recommended for you</h1>
-            <Recommended avalibleMovies={avalibleMovies} bookmarktry={bookmarktry}/>
+            <Recommended avalibleMovies={avalibleMovies} onBookmark={bookmarkHandler}/>
           </div>
         </>
       );
