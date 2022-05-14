@@ -11,6 +11,11 @@ const TVChoices = (props) => {
         props.onBookmark(movie);
       }
 
+      const removeBookmark = (movieTitle) => {
+        props.removeBookmark(movieTitle);
+        console.log('removing ' + movieTitle)
+    }
+
     return( 
         <div className={classes.choicesContent}>
         {props.avalibleChoices.filter((movie) => 

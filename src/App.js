@@ -34,6 +34,10 @@ function App() {
     // console.log(newBookmark)
   }
 
+  const removeBookmarkHandler = (movieName) => {
+    setBookmarks(bookmarks.filter((movie) => movie.title != movieName))
+  }
+
   return (
     <Router>
       <div className='App'>
@@ -41,10 +45,10 @@ function App() {
         <Search />
         <div className='content'>
           <Routes>
-            <Route exact path="/" element={<Home bookmark={bookmarkHandler} />} />
-            <Route path='/movies' element={<Movies bookmark={bookmarkHandler}/>}/>
-            <Route path='/tv' element={<TV bookmark={bookmarkHandler} />}/>
-            <Route path='/bookmarks' element={<Bookmarks bookmarks={bookmarks}/>}/>
+            <Route exact path="/" element={<Home bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>} />
+            <Route path='/movies' element={<Movies bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>}/>
+            <Route path='/tv' element={<TV bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>}/>
+            <Route path='/bookmarks' element={<Bookmarks bookmarks={bookmarks} removeBookmark={removeBookmarkHandler}/>}/>
           </Routes>
         </div>
       </div>

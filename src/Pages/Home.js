@@ -19,6 +19,11 @@ const Home = (props) => {
     // console.log(newChoice);
     props.bookmark(newChoice);
   } 
+
+  const removeBookmark =(movieTitle)=>{
+    props.removeBookmark(movieTitle)
+  }
+
     return (
         <>
           <div className={classes.trendingDiv}>
@@ -29,7 +34,11 @@ const Home = (props) => {
           </div>
           <div className={classes.recommendedDiv}>
             <h1 className={classes.recommendedDivH1}>Recommended for you</h1>
-            <Recommended avalibleMovies={avalibleMovies} onBookmark={bookmarkHandler}/>
+            <Recommended 
+            avalibleMovies={avalibleMovies} 
+            onBookmark={bookmarkHandler} 
+            removeBookmark={removeBookmark}
+              />
           </div>
         </>
       );

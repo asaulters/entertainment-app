@@ -18,6 +18,11 @@ const Recommended = (props) => {
         props.onBookmark(movie);
       }
 
+      const removeBookmark = (movieTitle) => {
+        props.removeBookmark(movieTitle);
+        console.log('removing ' + movieTitle)
+    }
+
     return (
         <div className={classes.choicesContent}>
             {this.props.avalibleMovies.filter((movie) => 

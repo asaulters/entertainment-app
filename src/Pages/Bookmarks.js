@@ -8,13 +8,17 @@ const Bookmarks = (props) => {
     props.bookmarks();
   }
 
+  const removeBookmark =(movieTitle)=>{
+    props.removeBookmark(movieTitle)
+  }
+
   return (
     <>
       <div className="">
           <h1>Bookmarks!</h1>
       </div>
       <div>
-        <BookmarkChoices bookmarks={props.bookmarks} />
+        <BookmarkChoices bookmarks={props.bookmarks} removeBookmark={removeBookmark}/>
       </div>
     </>
 

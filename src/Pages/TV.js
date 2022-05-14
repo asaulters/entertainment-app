@@ -12,13 +12,17 @@ const TV = (props) => {
     props.bookmark(newChoice);
   }
 
+  const removeBookmark =(movieTitle)=>{
+    props.removeBookmark(movieTitle)
+  }
+
   return (
     <>
       <div>
         <h1>TV Shows!</h1>
       </div>
       <div>
-        <TVChoices avalibleChoices={avalibleChoices} onBookmark={bookmarkHandler}/>
+        <TVChoices avalibleChoices={avalibleChoices} onBookmark={bookmarkHandler} removeBookmark={removeBookmark}/>
       </div>
     </>
   )
