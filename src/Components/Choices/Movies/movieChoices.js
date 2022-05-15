@@ -1,27 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
+// import bookmarkEmptySVG from \public\;
 import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
 import classes from '../Recommended/Recommended.module.css';
 
 // import ran from './'
 
-const movieChoices = (props) => {
-
-  // let isBookmarked = false
-  let SVGImg = {bookmarkEmptySVG};
-    // if(isBookmarked == true){
-    //   SVGImg = {bookmarkFullSVG}
-    // } else {
-    //   SVGImg = {bookmarkEmptySVG}
-    // }
+const MovieChoices = (props) => {
+  const [bookmarked, setBookmarked] = useState(false)
 
   const bookmarkHandler1 = (movie)=>{
     // console.log(movie);
-
     props.onBookmark(movie);
-
+    setBookmarked(true);
   }
 
   const removeBookmark = (movieTitle) => {
@@ -29,10 +21,11 @@ const movieChoices = (props) => {
     console.log('removing ' + movieTitle)
 }
 
-  
+  // {bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}
   
   return (
     <div className={classes.choicesContent}>
+
         {props.avalibleChoices.filter((movie) =>
             movie.category === 'Movie').map((movie, i ) => {
                 return (
@@ -44,7 +37,8 @@ const movieChoices = (props) => {
                        {/* { SVGImg = {bookmarkEmptySVG}} */}
                       {/* {console.log(movie.thumbnail.regular.large)} */}
                       <div className={classes.movieThumbPic} > 
-                          <img src={SVGImg} 
+                        
+                          <img src={bookmarked ? require('./assets/icon-bookmark-full.svg') : require('./assets/icon-bookmark-empty.svg')}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 
@@ -67,4 +61,4 @@ const movieChoices = (props) => {
   )
 }
 
-export default movieChoices
+export default MovieChoices
