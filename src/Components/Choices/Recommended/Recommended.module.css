@@ -45,6 +45,7 @@
     border-radius: 15px;
     height: 15px;
     width: 15px;
+    /* background-image:bookmarkd ? url('./assets//') : url(); */
 }
 .recommendedMovieImg{
     grid-column: 1/3;

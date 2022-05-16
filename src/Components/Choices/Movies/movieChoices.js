@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-// import bookmarkEmptySVG from \public\;
+import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
 import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
 import classes from '../Recommended/Recommended.module.css';
@@ -11,15 +11,18 @@ const MovieChoices = (props) => {
   const [bookmarked, setBookmarked] = useState(false)
 
   const bookmarkHandler1 = (movie)=>{
-    // console.log(movie);
+    
     props.onBookmark(movie);
     setBookmarked(true);
+    
   }
 
   const removeBookmark = (movieTitle) => {
     props.removeBookmark(movieTitle);
     console.log('removing ' + movieTitle)
 }
+
+  // const imgSrc = {bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
 
   // {bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}
   
@@ -38,7 +41,8 @@ const MovieChoices = (props) => {
                       {/* {console.log(movie.thumbnail.regular.large)} */}
                       <div className={classes.movieThumbPic} > 
                         
-                          <img src={bookmarked ? require('./assets/icon-bookmark-full.svg') : require('./assets/icon-bookmark-empty.svg')}
+                          <img 
+                          // src={bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 

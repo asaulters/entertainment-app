@@ -29,13 +29,20 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
 
   const bookmarkHandler =(newBookmark) =>{
-    setBookmarks([...bookmarks, newBookmark])
-    console.log(bookmarks);
+    if(bookmarks.indexOf(newBookmark.title) > -1) {
+      setBookmarks([...bookmarks, newBookmark]);
+      console.log(bookmarks);
+    } else{
+      console.log('bookmark already chosen')
+    }
+    // setBookmarks([...bookmarks, newBookmark])
+    // console.log(bookmarks);
     // console.log(newBookmark)
   }
 
   const removeBookmarkHandler = (movieName) => {
     setBookmarks(bookmarks.filter((movie) => movie.title != movieName))
+    
   }
 
   return (
