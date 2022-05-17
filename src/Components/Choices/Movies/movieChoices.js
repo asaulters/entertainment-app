@@ -42,7 +42,7 @@ const MovieChoices = (props) => {
                       <div className={classes.movieThumbPic} > 
                         
                           <img 
-                          // src={bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                          src={bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 

@@ -29,20 +29,22 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
 
   const bookmarkHandler =(newBookmark) =>{
-    if(bookmarks.indexOf(newBookmark.title) > -1) {
+    let bkmrkTitleCheck = bookmarks.filter(bookmark => bookmark.title === newBookmark.title);
+    if(bkmrkTitleCheck.length < 1) {
       setBookmarks([...bookmarks, newBookmark]);
-      console.log(bookmarks);
-    } else{
-      console.log('bookmark already chosen')
+      console.log("1 " + bookmarks);
+    } else if(bkmrkTitleCheck.length>0){
+      let newBKMRK = bookmarks.filter((movie) => movie.title !== newBookmark)
+      setBookmarks(newBKMRK)
+      // console.log('bookmark removed');
+      console.log(newBKMRK)
     }
-    // setBookmarks([...bookmarks, newBookmark])
-    // console.log(bookmarks);
-    // console.log(newBookmark)
+
   }
 
   const removeBookmarkHandler = (movieName) => {
     setBookmarks(bookmarks.filter((movie) => movie.title != movieName))
-    
+
   }
 
   return (
@@ -53,7 +55,7 @@ function App() {
         <div className='content'>
           <Routes>
             <Route exact path="/" element={<Home bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>} />
-            <Route path='/movies' element={<Movies bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>}/>
+            <Route path='/movies' element={<Movies bookmark={bookmarkHandler} />}/>
             <Route path='/tv' element={<TV bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>}/>
             <Route path='/bookmarks' element={<Bookmarks bookmarks={bookmarks} removeBookmark={removeBookmarkHandler}/>}/>
           </Routes>
