@@ -32,12 +32,10 @@ function App() {
     let bkmrkTitleCheck = bookmarks.filter(bookmark => bookmark.title === newBookmark.title);
     if(bkmrkTitleCheck.length < 1) {
       setBookmarks([...bookmarks, newBookmark]);
-      console.log("1 " + bookmarks);
+      console.log(bookmarks);
     } else if(bkmrkTitleCheck.length>0){
-      let newBKMRK = bookmarks.filter((movie) => movie.title !== newBookmark)
-      setBookmarks(newBKMRK)
-      // console.log('bookmark removed');
-      console.log(newBKMRK)
+      setBookmarks(bookmarks.filter((movie) => movie.title !== newBookmark))
+      console.log(bookmarks)
     }
 
   }
