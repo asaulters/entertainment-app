@@ -8,17 +8,18 @@ import classes from '../Recommended/Recommended.module.css';
 // import ran from './'
 
 const MovieChoices = (props) => {
-  const [bookmarked, setBookmarked] = useState(false)
+  const [toggleBookmark, setToggleBookmark] = useState(false)
 
   const bookmarkHandler1 = (movie)=>{
     
     props.onBookmark(movie);
-    setBookmarked(true);
+    setToggleBookmark(true);
     
   }
 
   const removeBookmark = (movieTitle) => {
     props.removeBookmark(movieTitle);
+    setToggleBookmark(false)
     console.log('removing ' + movieTitle)
 }
 
@@ -42,7 +43,7 @@ const MovieChoices = (props) => {
                       <div className={classes.movieThumbPic} > 
                         
                           <img 
-                          src={bookmarked ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                          src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 

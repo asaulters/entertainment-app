@@ -12,7 +12,7 @@ import classes from './Recommended.module.css';
 const Recommended = (props) => {
 
     // const imgUrl = 'url({../../../../assets/thumbnail.movie.large})'
-
+ 
 
     return (
         <div className={classes.Recommended}>

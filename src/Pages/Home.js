@@ -4,8 +4,9 @@ import React from "react";
 // different end points.
 import { Link } from "react-router-dom";
 
-import TrendingChoices from '../Choices/Trending/TrendingChoices';
-import Recommended from '../Choices/Recommended/Recommended';
+
+import Recomended from '../Components/Choices/Recommended/Recomended';
+import Trending from '../Components/Choices/Trending/Trending';
 
 import classes from './Home.module.css';
 
@@ -29,15 +30,19 @@ const Home = (props) => {
           <div className={classes.trendingDiv}>
             <h1 className={classes.trendingDivH1}>Trending</h1>
             <div className={classes.trendingDivContent}>
-              <TrendingChoices />
+              <Trending 
+                avalibleMovies={avalibleMovies} 
+                onBookmark={bookmarkHandler} 
+                removeBookmark={removeBookmark}
+              />
             </div>
           </div>
           <div className={classes.recommendedDiv}>
             <h1 className={classes.recommendedDivH1}>Recommended for you</h1>
-            <Recommended 
-            avalibleMovies={avalibleMovies} 
-            onBookmark={bookmarkHandler} 
-            removeBookmark={removeBookmark}
+            <Recomended 
+              avalibleMovies={avalibleMovies} 
+              onBookmark={bookmarkHandler} 
+              removeBookmark={removeBookmark}
               />
           </div>
         </>

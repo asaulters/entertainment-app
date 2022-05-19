@@ -14,11 +14,10 @@ import Movies from './Pages/Movies';
 import TV from './Pages/TV';
 import Bookmarks from './Pages/Bookmarks'
 
-import bookmarkContext from '../src/Components/Store/ContextProvider'
+
 import Header from './Components/Header/Header';
 import Search from './Components/Search/Search';
-import TrendingChoices from './Choices/Trending/TrendingChoices';
-import Recommended from './Choices/Recommended/Recommended';
+
 
 import classes from './App.module.css';
 
@@ -60,7 +59,7 @@ function App() {
         </div>
       </div>
 
-      
+
     </Router>
   );
 }
