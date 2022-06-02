@@ -51,6 +51,10 @@
     z-index: 1;
 }
 
+.slides{
+    height: 20vh;
+}
+
 @media (min-width: 400px) {
     .choicesContent {
         width: 95%;

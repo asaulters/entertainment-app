@@ -5,7 +5,7 @@ import { Slide } from 'react-slideshow-image';
 // import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
 
-import classes from '../Recommended/Recommended.module.css'
+import classes from './Trending.module.css'
 import 'react-slideshow-image/dist/styles.css'
 
 const Trending = (props) => {
@@ -27,10 +27,27 @@ const Trending = (props) => {
 
     const properties = {
         duration: 3000,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         autoplay: false,
         indicators: true,
+        responsive: [
+            {
+                breakpoint: 750,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            }
+
+        ]
       };
 
       const style = {
@@ -43,6 +60,7 @@ const Trending = (props) => {
 
   return (
     <div className={classes.choicesContent}>
+        <Slide {...properties} className={classes.slides}>
         {props.avalibleMovies.filter((movie) => 
             movie.isTrending === true).map((movie, i) => {
                 return (
@@ -50,9 +68,7 @@ const Trending = (props) => {
                     className={classes.movieDiv}
                     key={i}
                     >
-
-                            <Slide {...properties}>
-                            {/* <div className={classes.movieThumbPic} > 
+                            <div className={classes.movieThumbPic} > 
                         
                           <img 
                         //   src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
@@ -62,19 +78,19 @@ const Trending = (props) => {
                           bookmarkHandler1(movie)} 
 
                           />
-                          <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
-                      </div> */}
-                      {/* <div className={classes.movieThumbInfo} >
+                          <img className={classes.MovieImg} src={process.env.PUBLIC_URL + movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
+                          {console.log(movie.thumbnail.regular.large)}
+                          <div className={classes.movieThumbInfo}  >
                           <p>{movie.year} * {movie.category} * {movie.rating} </p>
                           <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
-                      </div> */}
-                      <div style={style}><h1>{movie.title}</h1></div>
+                      </div>
+                      </div> 
 
-                            </Slide>
                         </div>
 
                 )
             })}
+            </Slide>
     </div>
   )
 }
