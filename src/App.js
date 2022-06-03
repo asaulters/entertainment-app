@@ -48,7 +48,7 @@ function App() {
     <Router>
       <div className='App'>
         <Header />
-        <Search />
+        <Search avalibleMovies={avalibleMovies}/>
         <div className='content'>
           <Routes>
             <Route exact path="/" element={<Home bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>} />

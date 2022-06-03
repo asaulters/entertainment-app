@@ -59,8 +59,6 @@ const MovieChoices = (props) => {
                     </div>
                 );
             }, this)
-
-        
         } 
     </div>
   )
