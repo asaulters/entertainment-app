@@ -26,6 +26,8 @@ import avalibleMovies from '../src/data.json'
 function App() {
 
   const [bookmarks, setBookmarks] = useState([]);
+  const [userSearched, setUserSearched] = useState([]);
+  let resultOfSearch;
 
   const bookmarkHandler =(newBookmark) =>{
     let bkmrkTitleCheck = bookmarks.filter(bookmark => bookmark.title === newBookmark.title);
@@ -44,14 +46,19 @@ function App() {
 
   }
 
+  const searchResults = (searched) => {
+    resultOfSearch = searched
+    console.log(resultOfSearch)
+  }
+
   return (
     <Router>
       <div className='App'>
         <Header />
-        <Search avalibleMovies={avalibleMovies}/>
+        <Search avalibleMovies={avalibleMovies} searched={searchResults}/>
         <div className='content'>
           <Routes>
-            <Route exact path="/" element={<Home bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>} />
+            <Route exact path="/" element={<Home bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler} userSearch={resultOfSearch}/>} />
             <Route path='/movies' element={<Movies bookmark={bookmarkHandler} />}/>
             <Route path='/tv' element={<TV bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler}/>}/>
             <Route path='/bookmarks' element={<Bookmarks bookmarks={bookmarks} removeBookmark={removeBookmarkHandler}/>}/>
