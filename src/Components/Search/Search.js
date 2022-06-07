@@ -10,13 +10,11 @@ const Search = (props) => {
     const [searchValue, setSearchValue] = useState('');
 
     const keyPress = (e) => {
-        //target user value
-        console.log(e.key)
         // set seachValue to user value
         setSearchValue(e.target.value)
         // call searchHandler method when e.target === "Enter"
         if(e.key === "Enter"){
-            console.log('enter has been hit!')
+            // console.log('enter has been hit!')
             searchHandler(searchValue)
             //return search val to ''
             e.target.value ='';
@@ -24,10 +22,8 @@ const Search = (props) => {
     }
 
     const searchHandler = (searched) => {
-        // console.log('searched for ' + searchValue);
         //check for val in search if so check avalibleMovies
-
-        if(searched == '') {
+        if(searched === '') {
             setSearchValue('');
             console.log('empty search bar');
         } else {props.avalibleMovies.filter((movie) => 
@@ -36,11 +32,7 @@ const Search = (props) => {
                 props.searched(movie)
                 setSearchValue('');
             })
-            
         }
-        
-
-
     }
 
     return (

@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 // importing Link from react-router-dom to navigate to 
 // different end points.
 import { Link } from "react-router-dom";
@@ -24,6 +24,13 @@ const Home = (props) => {
   const removeBookmark =(movieTitle)=>{
     props.removeBookmark(movieTitle)
   }
+
+  let userSearched = props.userSearch;
+
+  useEffect(() => {
+    console.log('user searched ' + userSearched) 
+  }, [])
+  // console.log('user searched ' + userSearched)    
 
     return (
         <>
