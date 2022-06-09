@@ -1,41 +1,96 @@
-import React, {useContext, useReducer} from 'react';
+import {createContext, useContext, useReducer} from 'react';
 
-const defaultBookmarkState = {
-    items: []
-};
+const GlobalContext = createContext();
 
-const bookmarkReducer = (state, action) => {
-    if (action.type === 'ADD'){
-        const updatedItems = state.items.concat(action.item);
-        return { 
-            items: updatedItems
-        }
-    } else if (action.type === "REMOVE") {
-        const updatedItems = state.items.filter((items) => items.name !== action.item)
-    }
-    return defaultBookmarkState;
+export const useGlobalContext = () => useContext(GlobalContext)
+
+const initialState = {
+    movies: [],
+    searchTerms: []
 }
 
-const ContextProvider = () => {
-    const [bookmarkState, dispatchBookmarkAction] = useReducer(bookmarkReducer, defaultBookmarkState);
+const reducer = (state, action) => {
+    switch(action.type){
+        case 'loadMovies':
+            return {...state, movies: action.payload};
+        case "addSearchTerm":
+            return {...state, searchTerms: [...state, action.payload] };
+        case "removeSearchTerm":
+            return {
+                ...state,
+                searchTerms: state.searchTerms.filter((s) => s != action.payload)
+            };
+    }       
 
-    const addBookmarkHandler = (item) => {
-        dispatchBookmarkAction({type: 'ADD', item: item})
-    };
+}
 
-    const removeBookmarkHandler = (item) => {
-        dispatchBookmarkAction({ type: 'REMOVE', item: item})
-    }
+const GlobalContextProvider = ({children}) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    return (
+        <GlobalContext.Provider value={{state, dispatch}}>
+            {children}
+        </GlobalContext.Provider>
+    )
+}
 
-    const bookmarkContext = {
-        items: bookmarkState,
-        addBookmark: addBookmarkHandler,
-        removeBookmark: removeBookmarkHandler
-    }
+export default GlobalContextProvider;
 
-  return <bookmarkContext.Provider value={bookmarkContext}>
-      {PaymentResponse.children}
-  </bookmarkContext.Provider>
-};
 
-export default ContextProvider;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { createContext, useContext, useReducer } from 'react';
+
+// const GlobalContext = createContext;
+
+// export const useGlobalContext = () => useContext(GlobalContext);
+
+// const initialState = {
+//     movies: [],
+//     searchTerms : []
+// };
+
+// const reducer = (state, action) => {
+//     switch(action.type) {
+//         case "loadingMovies":
+//             return {...state, movies: action.payload};
+//         case "addSearchTerms":
+//             return{ ...state, searchTerms: [...state.searchTerms, action.payload] };
+//         case " removeSearchTerms":
+//             return {
+//                 ...state,
+//                 searchTerms: state.searchTerms.filter ((s) => s !== action.payload)
+//             }
+//     }
+// }
+
+// const GlobalContextProvider = ({children}) => {
+//     const [state, dispatch] = useReducer(reducer, initialState);
+//     return (
+//         <GlobalContext.Provider value={{ state, dispatch}} >
+//             {children}
+//         </GlobalContext.Provider>
+//     )
+// }
+
+
+
+

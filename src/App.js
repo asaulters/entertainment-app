@@ -83,10 +83,10 @@ const rando =() => {
 
     </Router>
   );
-}
+};
 
 export default App;
-''
+
 
 
 {/* <Route exact path="/" element={<Home bookmark={bookmarkHandler} removeBookmark={removeBookmarkHandler} userSearch={resultOfSearch}/>} />
