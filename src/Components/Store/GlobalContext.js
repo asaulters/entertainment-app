@@ -1,45 +1,43 @@
-import {createContext, useContext, useReducer} from 'react';
+import { createContext, useContext, useReducer } from "react";
+
+import avalibleMovies from '../../data.json'
 
 const GlobalContext = createContext();
 
-export const useGlobalContext = () => useContext(GlobalContext)
+export const useGlobalContext = () => useContext(GlobalContext);
 
 const initialState = {
-    movies: [],
-    searchTerms: []
-}
+  movies: [avalibleMovies],
+  searchTerms: [],
+  bookmarks: [],
+};
 
 const reducer = (state, action) => {
-    switch(action.type){
-        case 'loadMovies':
-            return {...state, movies: action.payload};
-        case "addSearchTerm":
-            return {...state, searchTerms: [...state, action.payload] };
-        case "removeSearchTerm":
-            return {
-                ...state,
-                searchTerms: state.searchTerms.filter((s) => s != action.payload)
-            };
-    }       
+  switch (action.type) {
+    case "loadMovies":
+      return { ...state, movies: action.payload };
+    case "addSearchTerm":
+      return { ...state, searchTerms: [...state.searchTerms, action.payload] };
+    case "removeSearchTerm":
+      return {
+        ...state,
+        searchTerms: state.searchTerms.filter((s) => s !== action.payload)
+      };
+    default:
+      return state;
+  }
+};
 
-}
-
-const GlobalContextProvider = ({children}) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    return (
-        <GlobalContext.Provider value={{state, dispatch}}>
-            {children}
-        </GlobalContext.Provider>
-    )
-}
+const GlobalContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <GlobalContext.Provider value={{ state, dispatch }}>
+      {children}
+    </GlobalContext.Provider>
+  );
+};
 
 export default GlobalContextProvider;
-
-
-
-
-
-
 
 
 

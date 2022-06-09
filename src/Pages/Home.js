@@ -10,27 +10,10 @@ import Trending from '../Components/Choices/Trending/Trending';
 
 import classes from './Home.module.css';
 
-import BkmrkCtx from '../Components/Store/ContextProvider'
 import avalibleMovies from '../data.json'
   
 const Home = (props) => {
 
-  const bookmarkHandler= (newChoice)=> {
-    // props.bookmarkHandler(newChoice)
-    // console.log(newChoice);
-    props.bookmark(newChoice);
-  } 
-
-  const removeBookmark =(movieTitle)=>{
-    props.removeBookmark(movieTitle)
-  }
-
-  let userSearched = props.userSearch;
-
-  useEffect(() => {
-    console.log('user searched ' + userSearched) 
-  }, [])
-  // console.log('user searched ' + userSearched)    
 
     return (
         <>
@@ -39,8 +22,6 @@ const Home = (props) => {
             <div className={classes.trendingDivContent}>
               <Trending 
                 avalibleMovies={avalibleMovies} 
-                onBookmark={bookmarkHandler} 
-                removeBookmark={removeBookmark}
               />
             </div>
           </div>
@@ -48,8 +29,6 @@ const Home = (props) => {
             <h1 className={classes.recommendedDivH1}>Recommended for you</h1>
             <Recomended 
               avalibleMovies={avalibleMovies} 
-              onBookmark={bookmarkHandler} 
-              removeBookmark={removeBookmark}
               />
           </div>
         </>

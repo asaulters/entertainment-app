@@ -1,17 +1,13 @@
 import React from 'react'
 
 import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
+import { useGlobalContext } from '../../Store/GlobalContext';
 
 import classes from '../Recommended/Recommended.module.css';
 
 const BookmarkChoices = (props) => {
+  const {state} = useGlobalContext()
 
-    // console.log(props.bookmarks)
-    const currentBookmarks =props.bookmarks.length;
-    // console.log(currentBookmarks)
-    // {currentBookmarks >0 && (
-    //     console.log('bookmarks here')
-    // )}
 
     const removeBookmark = (movieTitle) => {
         props.removeBookmark(movieTitle);
@@ -20,39 +16,40 @@ const BookmarkChoices = (props) => {
 
   return (
     <div className={classes.choicesContent}>
-        {currentBookmarks <1 &&  (
+    
+        {state.bookmarks <1 &&  (
              <>
                  <h1>No bookmarks here!</h1>
                  {console.log('no bookmarks!')}
              </>
-        )}
+         )}
         
-        
-        {props.bookmarks.map((movie, i) => {
-            return (
-                    <div 
-                      className={classes.movieDiv}
-                      key={i}
-                    >
+        {/* {console.log(state.movies)} */}
+       {state.bookmarks.map((movie, i) => {
+             return (
+                     <div 
+                       className={classes.movieDiv}
+                       key={i}
+                     >
                        
-                      {/* {console.log(movie.thumbnail.regular.large)} */}
-                      <div className={classes.movieThumbPic} > 
-                          <img src={bookmarkFullSVG} 
-                          className={classes.bookmarkSVG}  
-                          alt='bookmark img' 
-                          onClick={() => removeBookmark(movie.title)}
-                          />
-                          <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
-                      </div>
-                      <div className={classes.movieThumbInfo} >
-                          <p>{movie.year} * {movie.category} * {movie.rating} </p>
-                          <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
-                      </div>
-                    </div>
-                );
-            }, this)
-        }
-    </div>
+                       
+                       <div className={classes.movieThumbPic} > 
+                           <img src={bookmarkFullSVG} 
+                           className={classes.bookmarkSVG}  
+                           alt='bookmark img' 
+                           onClick={() => removeBookmark(movie.title)}
+                           />
+                           <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
+                       </div>
+                       <div className={classes.movieThumbInfo} >
+                           <p>{movie.year} * {movie.category} * {movie.rating} </p>
+                           <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
+                       </div>
+                     </div>
+                 );
+             }, this)
+         }
+     </div>
   )
 }
 

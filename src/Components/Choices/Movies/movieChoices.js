@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useGlobalContext } from '../../Store/GlobalContext';
 
 import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
 import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
@@ -8,11 +9,11 @@ import classes from '../Recommended/Recommended.module.css';
 // import ran from './'
 
 const MovieChoices = (props) => {
+  const {state, dispatch} = useGlobalContext();
   const [toggleBookmark, setToggleBookmark] = useState(false)
 
   const bookmarkHandler1 = (movie)=>{
-    
-    props.onBookmark(movie);
+    state.bookmarks.push(movie)
     setToggleBookmark(true);
     
   }

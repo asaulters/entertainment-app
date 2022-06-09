@@ -1,14 +1,15 @@
 import React from 'react';
+import { useGlobalContext } from '../../Store/GlobalContext';
 
 import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
 
 import classes from '../Recommended/Recommended.module.css';
 
 const TVChoices = (props) => {
+    const {state, dispatch} = useGlobalContext();
 
     const bookmarkHandler1 = (movie)=>{
-        // console.log(movie);
-        props.onBookmark(movie);
+        state.bookmarks.push(movie)
       }
 
       const removeBookmark = (movieTitle) => {

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Slide } from 'react-slideshow-image';
 
+import { useGlobalContext } from '../../Store/GlobalContext';
+
 // import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
 // import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
@@ -9,12 +11,13 @@ import classes from './Trending.module.css'
 import 'react-slideshow-image/dist/styles.css'
 
 const Trending = (props) => {
+  const {state, dispatch} = useGlobalContext();
 
     const [toggleBookmark, setToggleBookmark] = useState(false)
 
     const bookmarkHandler1 = (movie)=>{
     
-        props.onBookmark(movie);
+        state.bookmarks.push(movie);
         setToggleBookmark(true);
         
       }

@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import BookmarksPage from "./pages/Bookmarks";
-import HomePage from "./pages/Home";
-// That index is NOT supposed to be necessary
-import MoviesPage from "./pages/Movies/index";
-import TVPage from "./pages/TV";
+import BookmarksPage from "./Pages/Bookmarks";
+import HomePage from "./Pages/Home";
+import MoviesPage from "./Pages/Movies";
+import TVPage from "./Pages/TV";
 
 const AppRoutes = () => (
   <Routes>
