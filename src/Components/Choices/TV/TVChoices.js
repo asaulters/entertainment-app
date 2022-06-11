@@ -17,6 +17,15 @@ const TVChoices = (props) => {
         console.log('removing ' + movieTitle)
     }
 
+    const bookmarkHandlerMain = (movie) => {
+        {state.bookmarks.movie.includes(movie)&& (
+            <>
+                {console.log('includes')}
+            </>
+        )
+        }
+    }
+
     return( 
         <div className={classes.choicesContent}>
         {props.avalibleChoices.filter((movie) => 
@@ -31,7 +40,7 @@ const TVChoices = (props) => {
                         src={bookmarkEmptySVG} 
                         className={classes.bookmarkSVG}  
                         alt='bookmark img'
-                        onClick={() => bookmarkHandler1(movie)}
+                        onClick={() => bookmarkHandlerMain(movie)}
                         />
                     <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt="tv show thumb pic"/>
                 </div>

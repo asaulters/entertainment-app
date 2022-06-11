@@ -23,10 +23,21 @@ const reducer = (state, action) => {
         ...state,
         searchTerms: state.searchTerms.filter((s) => s !== action.payload)
       };
+    case "loadBookmarks":
+        return{...state, bookmarks: action.payload};
+    case "addBookmark":
+        return {...state, bookmarks: [...state.bookmarks, action.payload] };
+    case "removeBookmarks":
+        return {
+            ...state,
+             bookmarks: state.bookmarks.filter((s) => s !== action.payload)
+             };
     default:
       return state;
   }
 };
+
+
 
 const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
