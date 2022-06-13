@@ -12,6 +12,16 @@ const MovieChoices = (props) => {
   const {state, dispatch} = useGlobalContext();
   const [toggleBookmark, setToggleBookmark] = useState(false)
 
+  const movieFilter = (movie) => {
+    let result = true;
+    state.searchTerms.forEach((s) => {
+      if (!movie.title.toLowerCase().includes(s)) {
+        result = false;
+      }
+    });
+    return result;
+  };
+
   const bookmarkHandlerMain = (movie) => {
     //check for bookmark
     //if true, call remove
@@ -26,15 +36,16 @@ const MovieChoices = (props) => {
     }
     
 }
-  
-  return (
-    <div className={classes.choicesContent}>
 
-        {props.avalibleChoices.filter((movie) =>
-            movie.category === 'Movie').map((movie, i ) => {
-                return (
-                    
-                    <div 
+  return (
+    <>
+      <h1>Movies Page</h1>
+      <h2>
+        This component is in <code>src/Pages/Movies.js</code>
+      </h2>
+      <div className={classes.choicesContent}>
+        {state.movies.filter((movie) => movie.category === "Movie").filter(movieFilter).map((movie, i) => (
+          <div 
                       className={classes.movieDiv}
                       key={i}
                     >
@@ -43,25 +54,24 @@ const MovieChoices = (props) => {
                       <div className={classes.movieThumbPic} > 
                         
                           <img 
-                          src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                          // src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 
                             bookmarkHandlerMain(movie)} 
 
                           />
-                          <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
+                          <img className={classes.MovieImg} src={movie.thumbnail.regular.medium} alt='movie thumbnail pic'/>
                       </div>
                       <div className={classes.movieThumbInfo} >
                           <p>{movie.year} * {movie.category} * {movie.rating} </p>
                           <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
                       </div>
                     </div>
-                );
-            }, this)
-        } 
-    </div>
-  )
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default MovieChoices

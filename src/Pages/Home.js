@@ -13,17 +13,6 @@ const Home = (props) => {
 
   const {state } = useGlobalContext;
 
-  const movieFilter = (movie) => {
-    let result = true;
-    state.searchTerms.forEach((s) => {
-      if(!movie.title.toLowerCase().includes(s)){
-        result = false
-      }
-    });
-    return result;
-  };
-
-
 
     return (
         <>

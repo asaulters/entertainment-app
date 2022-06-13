@@ -6,11 +6,12 @@ import {useGlobalContext} from './Components/Store/GlobalContext'
 
 function App() {
   const { dispatch } = useGlobalContext();
-  // useEffect(() => {
-  //   fetch('data.json')
-  //     .then((data) => data.json())
-  //     .then((payload) => dispatch({type: 'loadMovies', payload}))
-  // }, [])
+  useEffect(() => {
+    fetch('data.json')
+      .then((data) => data.json())
+      .then((payload) => dispatch({type: 'loadMovies', payload}))
+      
+  }, [])
 
 
   return (

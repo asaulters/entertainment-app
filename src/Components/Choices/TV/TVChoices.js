@@ -7,6 +7,17 @@ import classes from '../Recommended/Recommended.module.css';
 
 const TVChoices = (props) => {
     const {state, dispatch} = useGlobalContext();
+    // const [toggleBookmark, setToggleBookmark] = useState(false)
+
+    const movieFilter = (movie) => {
+        let result = true;
+        state.searchTerms.forEach((s) => {
+          if (!movie.title.toLowerCase().includes(s)) {
+            result = false;
+          }
+        });
+        return result;
+      };
 
     const bookmarkHandlerMain = (movie) => {
         //check for bookmark
@@ -23,33 +34,38 @@ const TVChoices = (props) => {
         
     }
 
-    return( 
-        <div className={classes.choicesContent}>
-        {props.avalibleChoices.filter((movie) => 
-            movie.category ==="TV Series").map((movie, i) => {
-                return <div 
-                className={classes.movieDiv}
-                key={i} 
-                >
-                {/* {console.log(movie.thumbnail.regular.large)} */}
-                <div className={classes.movieThumbPic}> 
-                    <img 
-                        src={bookmarkEmptySVG} 
-                        className={classes.bookmarkSVG}  
-                        alt='bookmark img'
-                        onClick={() => bookmarkHandlerMain(movie)}
-                        />
-                    <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt="tv show thumb pic"/>
-                </div>
-                <div className={classes.movieThumbInfo} >
-                    <p>{movie.year} * {movie.category} * {movie.rating} </p>
-                    <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
-                </div>
 
-            </div>
-        })}
-        </div>
-    )
+    return (
+        <>
+          <div className={classes.choicesContent}>
+            {state.movies.filter((movie) => movie.category === "TV Series").filter(movieFilter).map((movie, i) => (
+              <div 
+                          className={classes.movieDiv}
+                          key={i}
+                        >
+                           {/* { SVGImg = {bookmarkEmptySVG}} */}
+                          {/* {console.log(movie.thumbnail.regular.large)} */}
+                          <div className={classes.movieThumbPic} > 
+                            
+                              <img 
+                              // src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                              className={classes.bookmarkSVG}  
+                              alt='bookmark img' 
+                              onClick={() => 
+                                bookmarkHandlerMain(movie)} 
+    
+                              />
+                              <img className={classes.MovieImg} src={movie.thumbnail.regular.medium} alt='movie thumbnail pic'/>
+                          </div>
+                          <div className={classes.movieThumbInfo} >
+                              <p>{movie.year} * {movie.category} * {movie.rating} </p>
+                              <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
+                          </div>
+                        </div>
+            ))}
+          </div>
+        </>
+      );
 } ;
 
 export default TVChoices;
