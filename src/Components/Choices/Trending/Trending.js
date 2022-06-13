@@ -15,18 +15,20 @@ const Trending = (props) => {
 
     const [toggleBookmark, setToggleBookmark] = useState(false)
 
-    const bookmarkHandler1 = (movie)=>{
-    
-        state.bookmarks.push(movie);
-        setToggleBookmark(true);
-        
+    const bookmarkHandlerMain = (movie) => {
+      //check for bookmark
+      //if true, call remove
+      //if false, call add
+      {state.bookmarks.includes(movie) ? (
+          <>
+              {dispatch({type: 'removeBookmarks', payload: movie})}
+          </>
+      ): <>
+              {dispatch({type: 'addBookmarks', payload: movie})} 
+          </>
       }
-    
-      const removeBookmark = (movieTitle) => {
-        props.removeBookmark(movieTitle);
-        setToggleBookmark(false)
-        console.log('removing ' + movieTitle)
-    }
+      
+  }
 
     const properties = {
         duration: 3000,
@@ -78,7 +80,7 @@ const Trending = (props) => {
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 
-                          bookmarkHandler1(movie)} 
+                            bookmarkHandlerMain(movie)} 
 
                           />
                           <img className={classes.MovieImg} src={process.env.PUBLIC_URL + movie.thumbnail.regular.large} alt='movie thumbnail pic'/>

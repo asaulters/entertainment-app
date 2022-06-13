@@ -9,6 +9,7 @@ export const useGlobalContext = () => useContext(GlobalContext);
 const initialState = {
   movies: [avalibleMovies],
   searchTerms: [],
+  searchResults: [],
   bookmarks: [],
 };
 
@@ -19,7 +20,11 @@ const reducer = (state, action) => {
     case "loadMovies":
       return { ...state, movies: action.payload };
     case "addSearchTerm":
-      return { ...state, searchTerms: [...state.searchTerms, action.payload] };
+      return { 
+        ...state, 
+        searchTerms: [...state.searchTerms, action.payload] ,
+        searchResults: state.searchTerms.filter((s) => s === action.payload)
+    };
     case "removeSearchTerm":
       return {
         ...state,
@@ -27,7 +32,7 @@ const reducer = (state, action) => {
       };
     case "loadBookmarks":
         return{...state, bookmarks: action.payload};
-    case "addBookmark":
+    case "addBookmarks":
         return {...state, bookmarks: [...state.bookmarks, action.payload] };
     case "removeBookmarks":
         return {

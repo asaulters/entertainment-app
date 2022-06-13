@@ -8,22 +8,19 @@ import classes from '../Recommended/Recommended.module.css';
 const TVChoices = (props) => {
     const {state, dispatch} = useGlobalContext();
 
-    const bookmarkHandler1 = (movie)=>{
-        state.bookmarks.push(movie)
-      }
-
-      const removeBookmark = (movieTitle) => {
-        props.removeBookmark(movieTitle);
-        console.log('removing ' + movieTitle)
-    }
-
     const bookmarkHandlerMain = (movie) => {
-        {state.bookmarks.movie.includes(movie)&& (
+        //check for bookmark
+        //if true, call remove
+        //if false, call add
+        {state.bookmarks.includes(movie) ? (
             <>
-                {console.log('includes')}
+                {dispatch({type: 'removeBookmarks', payload: movie})}
             </>
-        )
+        ): <>
+                {dispatch({type: 'addBookmarks', payload: movie})} 
+            </>
         }
+        
     }
 
     return( 

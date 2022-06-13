@@ -12,53 +12,34 @@ import Card from '../../Card/Card';
 const Recomended = (props) => {
     const {state, dispatch} = useGlobalContext();
     const [toggleBookmark, setToggleBookmark] = useState(false)
-    let userSearched = props.userSearch;  
 
-    const bookmarkHandler1 = (movie)=>{
-        // props.onBookmark(movie);
-        state.bookmarks.push(movie);
-        console.log(state.bookmarks)
-        setToggleBookmark(true);
-      }
+    const movieFilter = (movie) => {
+        let result = [];
 
-    
-      const removeBookmark = (movieTitle) => {
-        props.removeBookmark(movieTitle);
-        setToggleBookmark(false)
-        console.log('removing ' + movieTitle)
+        state.searchTerms.filter((s) => {
+          if(movie.title.toLowerCase().includes(s)){
+            result = [movie];
+            
+          }
+        });
+        console.log(result)
+        // return result;
+      };
+
+    const bookmarkHandlerMain = (movie) => {
+        //check for bookmark
+        //if true, call remove
+        //if false, call add
+        {state.bookmarks.includes(movie) ? (
+            <>
+                {dispatch({type: 'removeBookmarks', payload: movie})}
+            </>
+        ): <>
+                {dispatch({type: 'addBookmarks', payload: movie})} 
+            </>
+        }
+        
     }
-
-    const mappedCard = (movie, i) => {
-        return (
-                    
-            <div 
-              className={classes.movieDiv}
-              key={i}
-            >
-               {/* { SVGImg = {bookmarkEmptySVG}} */}
-              {/* {console.log(movie.thumbnail.regular.large)} */}
-              <div className={classes.movieThumbPic} > 
-                
-                  <img 
-                  src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
-                  className={classes.bookmarkSVG}  
-                  alt='bookmark img' 
-                  onClick={() => 
-                  bookmarkHandler1(movie)} 
-
-                  />
-                  {/* {console.log(toggleBookmark)}
-                  {console.log(bookmarkEmptySVG)} */}
-                  <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
-              </div>
-              <div className={classes.movieThumbInfo} >
-                  <p>{movie.year} * {movie.category} * {movie.rating} </p>
-                  <h3 className={classes.movieTitleH4}>{movie.title}</h3> 
-              </div>
-            </div>
-        );
-    }
-
 
 
     return (
@@ -92,7 +73,7 @@ const Recomended = (props) => {
                     </div>
                 );
             }) : */}
-          {props.avalibleMovies.filter((movie) => 
+          {/* {props.avalibleMovies.filter((movie) => 
                 movie.isTrending === false).map((movie, i) => {
     
                     return (
@@ -100,8 +81,6 @@ const Recomended = (props) => {
                       className={classes.movieDiv}
                       key={i}
                     >
-                       {/* { SVGImg = {bookmarkEmptySVG}} */}
-                      {/* {console.log(movie.thumbnail.regular.large)} */}
                       <div className={classes.movieThumbPic} > 
                         
                           <img 
@@ -109,11 +88,8 @@ const Recomended = (props) => {
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 
-                          bookmarkHandler1(movie)} 
-        
+                            bookmarkHandlerMain(movie)}
                           />
-                          {/* {console.log(toggleBookmark)}
-                          {console.log(bookmarkEmptySVG)} */}
                           <img className={classes.MovieImg} src={movie.thumbnail.regular.large} alt='movie thumbnail pic'/>
                       </div>
                       <div className={classes.movieThumbInfo} >
@@ -124,7 +100,11 @@ const Recomended = (props) => {
                 );
             }, this)
                     
-            }
+            } */}
+            
+            {state.movies.filter(movieFilter).map((movie) => {
+                <div>{movie.title} </div>
+            })}
            </div>
         
     )

@@ -1,9 +1,6 @@
 
 import React, { useEffect } from "react";
-// importing Link from react-router-dom to navigate to 
-// different end points.
-import { Link } from "react-router-dom";
-
+import { useGlobalContext } from "../Components/Store/GlobalContext";
 
 import Recomended from '../Components/Choices/Recommended/Recomended';
 import Trending from '../Components/Choices/Trending/Trending';
@@ -13,6 +10,19 @@ import classes from './Home.module.css';
 import avalibleMovies from '../data.json'
   
 const Home = (props) => {
+
+  const {state } = useGlobalContext;
+
+  const movieFilter = (movie) => {
+    let result = true;
+    state.searchTerms.forEach((s) => {
+      if(!movie.title.toLowerCase().includes(s)){
+        result = false
+      }
+    });
+    return result;
+  };
+
 
 
     return (
