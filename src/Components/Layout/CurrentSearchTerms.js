@@ -1,5 +1,7 @@
 import { useGlobalContext } from "../Store/GlobalContext";
 
+// import classes from './Layout.module.css'
+
 const CurrentSearchTerms = () => {
   const { state, dispatch } = useGlobalContext();
   return (

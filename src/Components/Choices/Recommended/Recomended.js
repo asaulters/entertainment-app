@@ -42,7 +42,7 @@ const Recomended = (props) => {
     return (
         <>
           <div className={classes.choicesContent}>
-            {state.movies.filter((movie) => movie.isTrending === "false").filter(movieFilter).map((movie, i) => (
+            {state.movies.filter((movie) => movie.isTrending === false).filter(movieFilter).map((movie, i) => (
               <div 
                           className={classes.movieDiv}
                           key={i}

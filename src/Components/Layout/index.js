@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../Store/GlobalContext";
 import CurrentSearchTerms from "./CurrentSearchTerms";
-import "./layout.css";
+// import "./layout.css";
+import classes from './Layout.module.css'
+import avatarIMG from '../../assets/image-avatar.png'
 
 const Layout = ({ children }) => {
   const { dispatch } = useGlobalContext();
@@ -17,7 +19,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <header>
-        <Link to="/">
+        <Link to="/" className={classes.logo}>
           <h1 style={{ margin: 0 }}>My Site</h1>
         </Link>
         <div id="header-content">
@@ -26,7 +28,7 @@ const Layout = ({ children }) => {
               <img
                 src="https://www.svgrepo.com/show/360602/movie.svg"
                 alt="Movies"
-                style={{ height: "2rem" }}
+                style={{ height: "2rem", }}
               />
             </Link>
             <Link to="/tv">
@@ -44,15 +46,21 @@ const Layout = ({ children }) => {
               />
             </Link>
           </nav>
-          <form onSubmit={handleSearch}>
-            <input
+        </div>
+        <div className="profileAvatar">
+              <img 
+                src={avatarIMG}
+                alt="avatar"
+                style={{ height: "3rem" }}
+              />
+            </div>
+      </header>
+      <form onSubmit={handleSearch} className={classes.searchForm}>
+            <input className={classes.searchFormInput}
               type="text"
               placeholder="Search"
-              style={{ padding: "0.75rem" }}
             />
           </form>
-        </div>
-      </header>
       <CurrentSearchTerms />
       <main>{children}</main>
     </>

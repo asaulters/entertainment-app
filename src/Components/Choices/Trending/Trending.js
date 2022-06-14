@@ -66,7 +66,7 @@ const Trending = (props) => {
   return (
     <div className={classes.choicesContent}>
         <Slide {...properties} className={classes.slides}>
-        {props.avalibleMovies.filter((movie) => 
+        {state.movies.filter((movie) => 
             movie.isTrending === true).map((movie, i) => {
                 return (
                     <div                       

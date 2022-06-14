@@ -12,11 +12,13 @@
   header {
     background: greenyellow;
     color: white;
-    padding: 1rem 8%;
+    padding-top: 20%; 
+    padding-bottom: 5%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around; */
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+
   }
   
   header,
@@ -43,10 +45,15 @@
   /* img {
     filter: invert();
   } */
+  .logo{
+    padding-bottom: 5%;
+  }
   
   nav {
     display: flex;
     align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
   
   a {
@@ -71,7 +78,7 @@
     margin-left: 1rem;
     padding: 5px 15px;
     color: white;
-    background: darkgray;
+    background: green;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -79,12 +86,30 @@
   .searchForm,
   .searchFormInput{
       /* width: 90vw; */
-      /* margin: auto; */
+      margin: auto auto auto 2.5%;
       padding: ".75rem";
-      width: 90%;
+      width: 95%;
       height:40px;
   }
 
   .profileAvatar{
       height: 10%;
+  }
+
+  @media (min-width:380px){
+    header {
+      background: greenyellow;
+      color: white;
+      padding: 1rem 8%;
+      height: 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .logo{
+      padding-bottom: 0%;
+
+    }
   }

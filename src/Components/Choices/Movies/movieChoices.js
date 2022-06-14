@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { useGlobalContext } from '../../Store/GlobalContext';
 
-import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
-import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
+// import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
+// import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
 import classes from '../Recommended/Recommended.module.css';
 
