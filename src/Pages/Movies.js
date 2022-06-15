@@ -4,6 +4,8 @@ import { useGlobalContext } from "../Components/Store/GlobalContext";
 import avalibleChoices from '../data.json'
 import MovieChoices from '../Components/Choices/Movies/MovieChoices'
 
+import classes from './Home.module.css';
+
 const Movies = (props) => {
 
   const { state } = useGlobalContext();
@@ -20,7 +22,7 @@ const Movies = (props) => {
 
   return (
       <>
-        <div className="">
+      <div className={classes.mainDiv}>
             <h1>Movies!</h1>
         </div>
         <div>

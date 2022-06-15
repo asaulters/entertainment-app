@@ -15,8 +15,7 @@ const BookmarkChoices = (props) => {
     
         {state.bookmarks <1 &&  (
              <>
-                 <h1>No bookmarks here!</h1>
-                 {console.log('no bookmarks!')}
+                 <h1>No bookmarks yet!</h1>
              </>
          )}
        {state.bookmarks.map((movie, i) => {

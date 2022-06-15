@@ -3,6 +3,7 @@ import React from 'react'
 import TVChoices from '../Components/Choices/TV/TVChoices';
 
 import avalibleChoices from './../data.json';
+import classes from './Home.module.css';
 
 const TV = (props) => {
 
@@ -18,7 +19,7 @@ const TV = (props) => {
 
   return (
     <>
-      <div>
+      <div className={classes.mainDiv}>
         <h1>TV Shows!</h1>
       </div>
       <div>

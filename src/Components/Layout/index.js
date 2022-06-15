@@ -4,7 +4,8 @@ import CurrentSearchTerms from "./CurrentSearchTerms";
 // import "./layout.css";
 import classes from './Layout.module.css'
 import avatarIMG from '../../assets/image-avatar.png'
-import logoImg from '../../assets/logo.svg'
+import logoImg from '../../assets/logo.svg';
+import homeImg from '../../assets/squares.svg.svg'
 
 const Layout = ({ children }) => {
   const { dispatch } = useGlobalContext();
@@ -25,7 +26,14 @@ const Layout = ({ children }) => {
           <img src={logoImg} />
         </Link>
         <div id="header-content">
-          <nav>
+          <nav className={classes.navLinks}>
+          <Link to="/">
+              <img
+                src={homeImg}
+                alt="home img"
+                style={{ height: "1.5rem", paddingRight: '10px', fill: 'black'}}
+              />
+            </Link>  
             <Link to="/movies">
               <img
                 src="https://www.svgrepo.com/show/360602/movie.svg"
@@ -37,7 +45,7 @@ const Layout = ({ children }) => {
               <img
                 src="https://www.svgrepo.com/show/370880/tv.svg"
                 alt="TV"
-                style={{ height: "3.5rem", marginTop: "-10px" }}
+                style={{ height: "3.5rem", marginTop: "-8px" }}
               />
             </Link>
             <Link to="/bookmarks">
@@ -47,6 +55,11 @@ const Layout = ({ children }) => {
                 style={{ height: "1.5rem" }}
               />
             </Link>
+            <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+           </div>
           </nav>
         </div>
         <div className="profileAvatar">

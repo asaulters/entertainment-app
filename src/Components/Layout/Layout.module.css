@@ -2,20 +2,12 @@
     box-sizing: border-box;
   }
   
-  /* html,
-  body {
-    padding: 0;
-    margin: 0;
-
-  } */
-  
   header {
     background: greenyellow;
     color: white;
     padding-top: 20%; 
     padding-bottom: 5%;
     display: flex;
-    /* justify-content: space-around; */
     align-items: center;
     flex-direction: column;
 
@@ -25,7 +17,6 @@
   #searchTerms {
     position: relative;
     width: 100%;
-    /* max-width: 700px; */
     left: 50%;
     transform: translateX(-50%);
   }
@@ -33,7 +24,6 @@
   main {
     position: relative;
     width: 95%;
-    /* max-width: 700px; */
     left: 50%;
     transform: translateX(-50%);
   }
@@ -42,9 +32,7 @@
     margin-left: 1rem;
   }
   
-  /* img {
-    filter: invert();
-  } */
+
   .logo{
     padding-bottom: 5%;
   }
@@ -67,30 +55,16 @@
     justify-content: space-between;
   }
   
-  #searchTerms {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 5px;
-    min-height: 1.75rem;
-    
-  }
-  
-  #searchTerms div {
-    margin-left: 1rem;
-    padding: 5px 15px;
-    color: white;
-    background-color: green;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-  }
   .searchForm,
   .searchFormInput{
       /* width: 90vw; */
-      margin: auto auto auto 2.5%;
+      margin: 1% auto;
       padding: ".75rem";
-      width: 95%;
+      width: 96%;
       height:40px;
+      display: flex;
+      align-self: center;
+      border-radius: 10px;
   }
 
   .profileAvatar{
@@ -99,9 +73,15 @@
 
   #searchTermOption,
   .searchTermOption{
-      margin-left: 20px;
-
-      background: blue;
+    margin-left: 4%;
+    padding: 5px 15px;
+    color: white;
+    background: green;
+    border-radius: 15px;
+    display: inline-block;
+    align-items: center;
+    flex-direction: row;
+    width: fit-content;
   } 
 
   @media (min-width:380px){
@@ -121,3 +101,33 @@
 
     }
   }
+
+  @media screen and (max-width: 380px){
+      .burger {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useGlobalContext } from '../../Store/GlobalContext';
 
-// import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
+import bookmarkEmptySVG from '../../../assets/icon-bookmark-empty.svg';
 // import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
 import classes from '../Recommended/Recommended.module.css';
@@ -39,10 +39,7 @@ const MovieChoices = (props) => {
 
   return (
     <>
-      <h1>Movies Page</h1>
-      <h2>
-        This component is in <code>src/Pages/Movies.js</code>
-      </h2>
+
       <div className={classes.choicesContent}>
         {state.movies.filter((movie) => movie.category === "Movie").filter(movieFilter).map((movie, i) => (
           <div 
@@ -54,7 +51,7 @@ const MovieChoices = (props) => {
                       <div className={classes.movieThumbPic} > 
                         
                           <img 
-                          // src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                          src={bookmarkEmptySVG}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 

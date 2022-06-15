@@ -2,6 +2,8 @@ import React from 'react';
 
 import BookmarkChoices from '../Components/Choices/BookmarkChoices/BookmarkChoices';
 
+import classes from '../Pages/Home.module.css'
+
 const Bookmarks = (props) => {
 
   const bookmarks = () =>{
@@ -14,7 +16,7 @@ const Bookmarks = (props) => {
 
   return (
     <>
-      <div className="">
+      <div className={classes.mainDiv}>
           <h1>Bookmarks!</h1>
       </div>
       <div>
