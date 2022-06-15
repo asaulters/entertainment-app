@@ -2,12 +2,12 @@
     box-sizing: border-box;
   }
   
-  html,
+  /* html,
   body {
     padding: 0;
     margin: 0;
 
-  }
+  } */
   
   header {
     background: greenyellow;
@@ -72,13 +72,14 @@
     justify-content: flex-end;
     margin-top: 5px;
     min-height: 1.75rem;
+    
   }
   
   #searchTerms div {
     margin-left: 1rem;
     padding: 5px 15px;
     color: white;
-    background: green;
+    background-color: green;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -95,6 +96,13 @@
   .profileAvatar{
       height: 10%;
   }
+
+  #searchTermOption,
+  .searchTermOption{
+      margin-left: 20px;
+
+      background: blue;
+  } 
 
   @media (min-width:380px){
     header {

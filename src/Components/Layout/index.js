@@ -4,6 +4,7 @@ import CurrentSearchTerms from "./CurrentSearchTerms";
 // import "./layout.css";
 import classes from './Layout.module.css'
 import avatarIMG from '../../assets/image-avatar.png'
+import logoImg from '../../assets/logo.svg'
 
 const Layout = ({ children }) => {
   const { dispatch } = useGlobalContext();
@@ -20,7 +21,8 @@ const Layout = ({ children }) => {
     <>
       <header>
         <Link to="/" className={classes.logo}>
-          <h1 style={{ margin: 0 }}>My Site</h1>
+          {/* <h1 style={{ margin: 0 }}>My Site</h1> */}
+          <img src={logoImg} />
         </Link>
         <div id="header-content">
           <nav>

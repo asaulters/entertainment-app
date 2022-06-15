@@ -1,13 +1,13 @@
 import { useGlobalContext } from "../Store/GlobalContext";
 
-// import classes from './Layout.module.css'
+import classes from './Layout.module.css'
 
 const CurrentSearchTerms = () => {
   const { state, dispatch } = useGlobalContext();
   return (
     <div id="searchTerms">
       {state.searchTerms.map((s) => (
-        <div>
+        <div id='searchTermOption' className={classes.searchTermOption}>
           {s}
           <img
             onClick={() => dispatch({ type: "removeSearchTerm", payload: s })}
@@ -27,3 +27,5 @@ const CurrentSearchTerms = () => {
 };
 
 export default CurrentSearchTerms;
+
+{/* <div className={classes.searchTermOption}> */}

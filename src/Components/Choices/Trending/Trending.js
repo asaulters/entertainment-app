@@ -3,7 +3,7 @@ import { Slide } from 'react-slideshow-image';
 
 import { useGlobalContext } from '../../Store/GlobalContext';
 
-// import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
+import bookmarkEmptySVG from '../../../assets/icon-bookmark-empty.svg';
 // import bookmarkFullSVG from './assets/icon-bookmark-full.svg';
 
 
@@ -76,7 +76,7 @@ const Trending = (props) => {
                             <div className={classes.movieThumbPic} > 
                         
                           <img 
-                        //   src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                          src={bookmarkEmptySVG}
                           className={classes.bookmarkSVG}  
                           alt='bookmark img' 
                           onClick={() => 
