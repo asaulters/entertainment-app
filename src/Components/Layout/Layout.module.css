@@ -3,22 +3,25 @@
   }
   
   header {
-    background: greenyellow;
+    width: 95%;
+    background: #5a698f;
     color: white;
     padding-top: 20%; 
     padding-bottom: 5%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
 
   }
   
   header,
   #searchTerms {
     position: relative;
-    width: 100%;
+    width: 92%;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 15px;
   }
 
   main {
@@ -42,6 +45,11 @@
     align-items: center;
     margin-top: 5%;
     margin-bottom: 5%;
+    width: 500%;
+  }
+
+  .navlinks{
+    width: 100px;
   }
   
   a {
@@ -53,11 +61,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 500px;
   }
   
   .searchForm,
   .searchFormInput{
       /* width: 90vw; */
+      background-color: #161d2f;
+
+      color: white;
       margin: 1% auto;
       padding: ".75rem";
       width: 96%;
@@ -66,6 +78,9 @@
       align-self: center;
       border-radius: 10px;
   }
+.searchFormInput::placeholder{
+  color: white;
+}
 
   .profileAvatar{
       height: 10%;
@@ -76,7 +91,7 @@
     margin-left: 4%;
     padding: 5px 15px;
     color: white;
-    background: green;
+    background: #5a698f;
     border-radius: 15px;
     display: inline-block;
     align-items: center;
@@ -84,9 +99,9 @@
     width: fit-content;
   } 
 
-  @media (min-width:380px){
+  @media (min-width:325px){
     header {
-      background: greenyellow;
+      background: #5a698f;
       color: white;
       padding: 1rem 8%;
       height: 5rem;

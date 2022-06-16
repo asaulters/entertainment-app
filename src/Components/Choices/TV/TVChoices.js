@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGlobalContext } from '../../Store/GlobalContext';
 
-import bookmarkEmptySVG from './assets/icon-bookmark-empty.svg';
+import bookmarkEmptySVG from '../../../assets/icon-bookmark-empty.svg';
 
 import classes from '../Recommended/Recommended.module.css';
 
@@ -48,7 +48,7 @@ const TVChoices = (props) => {
                           <div className={classes.movieThumbPic} > 
                             
                               <img 
-                              // src={toggleBookmark ? {bookmarkFullSVG} : {bookmarkEmptySVG}}
+                              src={bookmarkEmptySVG}
                               className={classes.bookmarkSVG}  
                               alt='bookmark img' 
                               onClick={() => 

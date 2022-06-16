@@ -13,42 +13,43 @@ const Layout = ({ children }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     const inputField = e.target.children[0];
-    const payload = inputField.value;
+    const payload = inputField.value.toLowerCase();
     dispatch({ type: "addSearchTerm", payload });
     inputField.value = "";
   };
+
 
   return (
     <>
       <header>
         <Link to="/" className={classes.logo}>
           {/* <h1 style={{ margin: 0 }}>My Site</h1> */}
-          <img src={logoImg} />
+          <img src={logoImg} alt="logo img"/>
         </Link>
         <div id="header-content">
           <nav className={classes.navLinks}>
-          <Link to="/">
+          <Link to="/" >
               <img
                 src={homeImg}
                 alt="home img"
                 style={{ height: "1.5rem", paddingRight: '10px', fill: 'black'}}
               />
             </Link>  
-            <Link to="/movies">
+            <Link to="/movies" >
               <img
                 src="https://www.svgrepo.com/show/360602/movie.svg"
                 alt="Movies"
                 style={{ height: "2rem", }}
               />
             </Link>
-            <Link to="/tv">
+            <Link to="/tv" >
               <img
                 src="https://www.svgrepo.com/show/370880/tv.svg"
                 alt="TV"
                 style={{ height: "3.5rem", marginTop: "-8px" }}
               />
             </Link>
-            <Link to="/bookmarks">
+            <Link to="/bookmarks" >
               <img
                 src="https://www.svgrepo.com/show/135489/bookmark-outline.svg"
                 alt="Bookmarks"
@@ -73,7 +74,8 @@ const Layout = ({ children }) => {
       <form onSubmit={handleSearch} className={classes.searchForm}>
             <input className={classes.searchFormInput}
               type="text"
-              placeholder="Search"
+              placeholder="Search for movies or TV series"
+
             />
           </form>
       <CurrentSearchTerms />

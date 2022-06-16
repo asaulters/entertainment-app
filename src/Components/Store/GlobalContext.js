@@ -23,7 +23,7 @@ const reducer = (state, action) => {
       return { 
         ...state, 
         searchTerms: [...state.searchTerms, action.payload] ,
-        searchResults: state.searchTerms.filter((s) => s === action.payload)
+        searchResults: state.searchTerms.filter((s) => s.toLowerCase() === action.payload)
     };
     case "removeSearchTerm":
       return {
@@ -38,7 +38,7 @@ const reducer = (state, action) => {
         return {
             ...state,
              bookmarks: state.bookmarks.filter((s) => s !== action.payload)
-             };
+             };      
     default:
       return state;
   }
